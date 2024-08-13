@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+        h1= pageHeader.title
+            small
+            &nbsp;#{pageHeader.strapline}
+  // Listing 4.6 Complete template for app_server/views/locations-list.pug
+  // Name of the listing and a link to the location
+  // Uses Font Awesome icons to output a star rating
+  // Uses Bootstrap’s badge helper class to display the distance away
+  // Address of the location
+  // Facilities of the location, output using Bootstrap’s badge classes
+  // Figure 4.9 Onscreen rendering of a single location on the List page
+
+  // Starts header area
+  .row
+    .col-12.col-md-8
+      .card
+        .card-block
+          h4
+            a(href="/location") Tech Conference 2024
+            small &nbsp;
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+            i.far.fa-star
+            i.far.fa-star
+            span.badge.badge-pill.badge-default.float-right ₹500
+          p.date 15 September 2024
+          p.location Convention Center, Hyderabad
+          p.description A conference for tech enthusiasts.
+
+    .col-12.col-md-4
+      p.lead Looking to attend an event? EventHub helps you find and register for events near you. Whether it's a tech conference, art expo, or music fest, let EventHub guide you to the perfect event.
+
+
