@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //- mixin outputRating(rating)
 //-  - for (let i = 1; i <= rating; i++)
 //-     i.fas.fa-star
@@ -11,3 +12,18 @@ mixin outputRating(rating)
         i.fa.fa-star
       else
         i.fa.fa-star-o
+=======
+//- mixin outputRating(rating)
+//-  - for (let i = 1; i <= rating; i++)
+//-     i.fas.fa-star
+//-  - for (let i = rating; i < 5; i++)
+//-     i.far.fa-star
+
+mixin outputRating(rating)
+  .rating
+    each val in Array(5)
+      if val < rating
+        i.fa.fa-star
+      else
+        i.fa.fa-star-o
+>>>>>>> e6c4061f6b4b65a70c97651b0b5914c6f7de8cfc
