@@ -1,0 +1,43 @@
+extends layout
+include _includes/sharedHTMLfunctions
+
+block content
+  .row.banner
+    .col-12
+      h1= pageHeader.title
+      small &nbsp;#{pageHeader.strapline}
+
+  .row
+    .col-12.col-md-8
+      if universityEvents && universityEvents.length > 0
+        h2 University Events
+        each event in universityEvents
+          .card.mb-3
+            .card-body
+              h4.card-title
+                a(href=`/events/${encodeURIComponent(event.name)}`)= event.name
+              span.badge.badge-pill.badge-primary.float-right= new Date(event.date).toLocaleDateString('en-GB')
+              p.address= event.location
+              p= event.description
+      else
+        h2 University Events
+        p No university events available at the moment.
+
+      if hyderabadEvents && hyderabadEvents.length > 0
+        h2 Hyderabad Events
+        each event in hyderabadEvents
+          .card.mb-3
+            .card-body
+              h4.card-title
+                a(href=`/events/${encodeURIComponent(event.name)}`)= event.name
+              span.badge.badge-pill.badge-primary.float-right= new Date(event.date).toLocaleDateString('en-GB')
+              p.address= event.location
+              p= event.description
+      else
+        h2 Hyderabad Events
+        p No Hyderabad events available at the moment.
+
+    .col-12.col-md-4
+      .card
+        .card-body
+          p.lead= sidebar

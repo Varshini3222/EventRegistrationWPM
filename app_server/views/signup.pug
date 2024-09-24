@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Register for Events
+  form(method="POST" action="/register")
+    div
+      label(for="name") Name:
+      input(type="text" id="name" name="name" required)
+    div
+      label(for="email") Email:
+      input(type="email" id="email" name="email" required)
+    div
+      label(for="password") Password:
+      input(type="password" id="password" name="password" required)
+    div
+      label(for="confirmPassword") Confirm Password:
+      input(type="password" id="confirmPassword" name="confirmPassword" required)
+    div
+      button(type="submit") Register
