@@ -1,19 +1,25 @@
 
 const universityEvents = [
   {
-    name: "University Tech Conference",
-    date: "2024-10-10",
-    location: "University of Hyderabad",
+    name: "Bathukamma celebrations",
+    fromDate: "2024-10-05",
+    toDate: "2024-10-05", // Same date since it's a one-day event
+    time: "10:00 AM - 5:00 PM",
+    fee:"Free",
+    location: "At Anurag University",
     type: "University",
-    description: "A conference on the latest in technology.",
+    description: "A celebration of the Bathukamma festival with traditional activities.",
     facilities: ["Wi-Fi", "Lunch Provided", "Parking"],
   },
   {
-    name: "Science Fair",
-    date: "2024-09-30",
-    location: "Osmania University",
+    name: "Specdam Auditions",
+    fromDate: "2024-09-20",
+    toDate: "2024-09-20",
+    time: "9:00 AM - 3:00 PM",
+    fee:160,
+    location: "Anurag University",
     type: "University",
-    description: "Showcasing innovative projects from students.",
+    description: "Auditions for the annual Specdam event showcasing student talents.",
     facilities: ["Exhibition Space", "Seating Area", "Refreshments"],
   },
 ];
@@ -21,66 +27,114 @@ const universityEvents = [
 const hyderabadEvents = [
   {
     name: "Hyderabad Food Festival",
-    date: "2024-11-05",
+    fromDate: "2024-11-05",
+    toDate: "2024-11-07",
+    time: "11:00 AM - 9:00 PM",
+    fee:150,
     location: "Hyderabad",
     type: "Hyderabad",
     description: "A festival celebrating the diverse food culture of Hyderabad.",
     facilities: ["Food Stalls", "Live Music", "Rest Areas"],
+  },
+  {
+    name: "Navratri Utsav 2024",
+    fromDate: "2024-10-04",
+    toDate: "2024-10-12",
+    time: "6:00 PM - 11:00 PM",
+    fee:200,
+    location: "Various locations in Hyderabad",
+    type: "Hyderabad",
+    description: "Celebrate the vibrant festival of Navratri with traditional music, dance, and cultural performances.",
+    facilities: ["Food Stalls", "Parking", "Rest Areas"],
   },
 ];
 
 const events = [
   {
-    name: "University Tech Conference",
-    date: "2024-10-10",
-    location: "University of Hyderabad",
+    name: "Bathukamma celebrations",
+    fromDate: "2024-10-05",
+    toDate: "2024-10-05",
+    time: "10:00 AM - 5:00 PM",
+    fee:"Free",
+    location: "E-Block and also Near APJ",
     type: "University",
-    description: "A conference on the latest in technology.",
+    description: "A celebration of Bathukamma festival with traditional activities.",
     facilities: ["Wi-Fi", "Lunch Provided", "Parking"],
     reviews: [
       {
-        author: "John Doe",
+        author: "Jyothi  ",
         rating: 5,
-        timestamp: "10 October 2024",
-        reviewText: "An amazing event! Very informative.",
+        timestamp: "05 October 2024",
+        reviewText: "Enjoyed a lot!",
       },
       {
-        author: "Jane Smith",
+        author: "Ravi  ",
         rating: 4,
-        timestamp: "11 October 2024",
-        reviewText: "Great speakers and sessions.",
+        timestamp: "05 October 2024",
+        reviewText: "Beautiful event.",
       },
     ],
   },
   {
     name: "Hyderabad Food Festival",
-    date: "2024-11-05",
-    location: "Hyderabad",
+    fromDate: "2024-11-05",
+    toDate: "2024-11-07",
+    time: "11:00 AM - 9:00 PM",
+    fee:150,
+    location: "Madhapur, Hyderabad",
     type: "Hyderabad",
     description: "A festival celebrating the diverse food culture of Hyderabad.",
     facilities: ["Food Stalls", "Live Music", "Rest Areas"],
     reviews: [
       {
-        author: "Alice Williams",
+        author: "Shruthi  ",
         rating: 4,
-        timestamp: "12 November 2024",
+        timestamp: "06 November 2024",
         reviewText: "Fantastic food, loved the event!",
       },
     ],
   },
   {
-    name: "Science Fair",
-    date: "2024-09-30",
-    location: "Osmania University",
+    name: "Specdam Auditions",
+    fromDate: "2024-09-20",
+    toDate: "2024-09-20",
+    time: "9:00 AM - 3:00 PM",
+    fee:160,
+    location: "E-Block Auditorium",
     type: "University",
-    description: "Showcasing innovative projects from students.",
+    description: "Auditions for showcasing innovative projects from students.",
     facilities: ["Exhibition Space", "Seating Area", "Refreshments"],
     reviews: [
       {
-        author: "Bob Thompson",
+        author: "Vijay  ",
         rating: 5,
-        timestamp: "1 October 2024",
-        reviewText: "Incredible projects from brilliant students!",
+        timestamp: "9 September 2024",
+        reviewText: "I am satisfied with every students performance",
+      },
+    ],
+  },
+  {
+    name: "Navratri Utsav 2024",
+    fromDate: "2024-10-04",
+    toDate: "2024-10-12",
+    time: "6:00 PM - 11:00 PM",
+    fee:200,
+    location: "Various locations of Hyderabad like Jubilee Hills, Gachibowli, etc.",
+    type: "Hyderabad",
+    description: "Celebrate the vibrant festival of Navratri with traditional music, dance, and cultural performances.",
+    facilities: ["Food Stalls", "Parking", "Rest Areas"],
+    reviews: [
+      {
+        author: "Vikram  ",
+        rating: 4,
+        timestamp: "09 October 2024",
+        reviewText: "Navratri Utsav 2024 is a celebration of life, culture, and devotion.",
+      },
+      {
+        author: "Srujan  ",
+        rating: 5,
+        timestamp: "10 October 2024",
+        reviewText: "Happy Dusshera to everyone. I really enjoyed a lot ",
       },
     ],
   },
@@ -96,7 +150,7 @@ const eventList = (req, res) => {
       strapline: "Discover events happening in your area!",
     },
     sidebar:
-      "Looking for events to attend? Our site helps you find upcoming events in Hyderabad and universities. Join us for exciting activities!",
+      "Looking for events to attend? Our site helps you find upcoming events in Hyderabad and university. Join us for exciting activities!Whether you’re interested in music concerts, stand-up comedy, workshops, or cultural festivals, we have something for everyone. Explore a diverse array of events happening across the city and on Anurag university campus.",
     universityEvents,
     hyderabadEvents,
   });
@@ -163,26 +217,26 @@ const eventInfo = (req, res) => {
   });
 };
 
-const isAuthenticated = require('../controllers/auth');
+const isAuthenticated = require('./eventController');
 
 // Other event-related logic
-const attendEvent = (req, res) => {
-  const eventName = req.params.eventName;
-  const eventDetails = events.find(event => event.name === eventName);
+// const attendEvent = (req, res) => {
+//   const eventName = req.params.eventName;
+//   const eventDetails = events.find(event => event.name === eventName);
 
-  if (!eventDetails) {
-    return res.status(404).render('error', {
-      title: 'Event Not Found',
-      message: `No event found with the name "${eventName}".`,
-    });
-  }
+//   if (!eventDetails) {
+//     return res.status(404).render('error', {
+//       title: 'Event Not Found',
+//       message: `No event found with the name "${eventName}".`,
+//     });
+//   }
 
-  res.render('event-attended', {
-    title: `Attending ${eventDetails.name}`,
-    pageHeader: { title: `You're attending ${eventDetails.name}` },
-    event: eventDetails,
-  });
-};
+//   res.render('event-attended', {
+//     title: `Attending ${eventDetails.name}`,
+//     pageHeader: { title: `You're attending ${eventDetails.name}` },
+//     event: eventDetails,
+//   });
+// };
 
 
 const renderLogin = (req, res) => {
@@ -235,6 +289,41 @@ const renderSignup = (req, res) => {
 
 //   res.redirect(`/events/${eventName}`);
 // };
+// const renderAddEventForm = (req, res) => {
+//   res.render('add_event', {
+//     title: 'Add New Event',
+//     pageHeader: { title: 'Add a New Event' },
+//   });
+// };
+
+// const addEvent = (req, res) => {
+//   const { name, fromDate, toDate, time, fee, location, type, description, facilities } = req.body;
+
+//   // Create a new event object
+//   const newEvent = new Event({
+//     name,
+//     fromDate,
+//     toDate,
+//     time,
+//     fee,
+//     location,
+//     type,
+//     description,
+//     facilities: facilities.split(',').map(facility => facility.trim()) // Convert comma-separated string to array
+//   });
+
+  // Save the event to MongoDB
+//   newEvent.save((err) => {
+//     if (err) {
+//       return res.status(500).render('error', {
+//         title: 'Error',
+//         message: 'Failed to add the event. Please try again.'
+//       });
+//     }
+//     res.redirect('/events');  // Redirect to events list after adding
+//   });
+// };
+
 
 
 module.exports = {
@@ -242,9 +331,6 @@ module.exports = {
   getUniversityEvents,
   getHyderabadEvents,
   eventInfo,
-  attendEvent, // New attend event handler
-  //addReview,
-  //submitReview,
   renderLogin, // Login page handler
-  renderSignup, // Signup page handler
+  renderSignup, // Signup page handler 
 };

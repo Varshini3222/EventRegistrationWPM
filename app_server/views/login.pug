@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1 Login to Attend Events
+  h1 #{pageHeader.title}
+  p #{sidebar}
+  
   form(method="POST" action="/login")
     div
       label(for="email") Email:
@@ -10,4 +12,7 @@ block content
       label(for="password") Password:
       input(type="password" id="password" name="password" required)
     div
-      button(type="submit") Login
+      button(type="submit") Log In
+  //- if showForgotPassword
+  //-   p
+  //-     a(href="/forgot-password") Forgot your password?

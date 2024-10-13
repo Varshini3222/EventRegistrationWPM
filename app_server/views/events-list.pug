@@ -7,20 +7,29 @@ block content
       h1= pageHeader.title
       small &nbsp;#{pageHeader.strapline}
 
+  // Add Event button, only visible if the user is authenticated
+  if isAuthenticated
+    .row
+      .col-12.text-right
+        a.btn.btn-primary(href="/events/add") Add New Event
+
   .row
     .col-12.col-md-8
       if universityEvents && universityEvents.length > 0
-        h2 University Events
+        h2 Anurag University Events
         each event in universityEvents
           .card.mb-3
             .card-body
               h4.card-title
                 a(href=`/events/${encodeURIComponent(event.name)}`)= event.name
-              span.badge.badge-pill.badge-primary.float-right= new Date(event.date).toLocaleDateString('en-GB')
+              span.badge.badge-pill.badge-primary.float-right= new Date(event.fromDate).toLocaleDateString('en-GB')
               p.address= event.location
               p= event.description
+              p
+                strong Fee: 
+                | ₹ #{event.fee}  
       else
-        h2 University Events
+        h2 Anurag University Events
         p No university events available at the moment.
 
       if hyderabadEvents && hyderabadEvents.length > 0
@@ -30,9 +39,12 @@ block content
             .card-body
               h4.card-title
                 a(href=`/events/${encodeURIComponent(event.name)}`)= event.name
-              span.badge.badge-pill.badge-primary.float-right= new Date(event.date).toLocaleDateString('en-GB')
+              span.badge.badge-pill.badge-primary.float-right= new Date(event.fromDate).toLocaleDateString('en-GB')
               p.address= event.location
               p= event.description
+              p
+                strong Fee: 
+                | ₹ #{event.fee}  
       else
         h2 Hyderabad Events
         p No Hyderabad events available at the moment.

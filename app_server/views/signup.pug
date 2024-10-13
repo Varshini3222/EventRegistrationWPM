@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1 Register for Events
-  form(method="POST" action="/register")
+  form(method="POST" action="/signup")
     div
       label(for="name") Name:
-      input(type="text" id="name" name="name" required)
+      input(type="text" id="name" name="username" required)
     div
       label(for="email") Email:
       input(type="email" id="email" name="email" required)

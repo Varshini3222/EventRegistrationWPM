@@ -3,40 +3,50 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+const eventRoutes = require('./app_server/routes/event'); // Import event routes
 
-// Routers
-var indexRouter = require('./app_server/routes/index'); // Main router with events
-var usersRouter = require('./app_server/routes/users'); // Users router (optional)
-var authRouter = require('./app_server/routes/auth');
-var otherRouter = require('./app_server/routes/index');
-// Express app setup
+var indexRouter = require('./app_server/routes/index');  
+var usersRouter = require('./app_server/routes/users');  
+var authRouter = require('./app_server/routes/auth');   
+
 var app = express();
+ 
 
-// Set up views directory and view engine
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'pug');  // Pug templating engine
-
-// Middleware
-app.use(logger('dev')); // Logs HTTP requests
-app.use(express.json()); // Parses incoming JSON requests
-app.use(express.urlencoded({ extended: false })); // Parses URL-encoded requests
-app.use(cookieParser()); // Parses cookies
-app.use(express.static(path.join(__dirname, 'public'))); // Serves static files
+app.use(logger('dev')); 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false })); 
+app.use(cookieParser()); 
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static('public'));
+//app.use('/events', eventRoutes);
 
-// Use routes
-app.use('/', indexRouter); // Main route for events and homepage
-app.use('/users', usersRouter); // User-related routes (optional)
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'pug');  
+
+// mongoose.connect('mongodb+srv://22eg106b26:1234@eventcluster.4osji.mongodb.net/myDB', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// }).then(() => {
+//   console.log("Connected to MongoDB");
+// }).catch((err) => {
+//   console.error("Failed to connect to MongoDB", err);
+// });
+
+// Use the event routes
+//app.use('/events', eventRoutes);
+app.use('/', indexRouter); 
+app.use('/users', usersRouter); 
 app.use('/', authRouter);  
-app.use('/', otherRouter);
+ 
+// app.get('/', (req, res) => {
+//   res.render('add-event');  // This will render the add event page
+// });
 
-// Catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404)); // Creates a 404 error if no route is matched
+  next(createError(404)); 
 });
 
-// Error handler
 app.use(function (err, req, res, next) {
   // Set locals, only providing error details in development
   res.locals.message = err.message;

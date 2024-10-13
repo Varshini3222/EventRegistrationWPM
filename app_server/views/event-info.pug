@@ -13,8 +13,9 @@ block content
           p.rating
             if event.reviews && event.reviews.length > 0
               +outputRating(getAverageRating(event.reviews))
-          p= event.location  
-          p= new Date(event.date).toLocaleDateString('en-GB')  
+          p Location: #{event.location}
+          p Date: #{new Date(event.fromDate).toLocaleDateString('en-GB')} to #{new Date(event.toDate).toLocaleDateString('en-GB')}
+          p Time: #{event.time}  
 
       .card.card-primary
         .card-block
@@ -41,7 +42,7 @@ block content
           if isAuthenticated
             a.btn.btn-success(href=`/events/${encodeURIComponent(event.name)}/attend`) Attend Event
           else
-            p You need to 
+            p Hey..!  
             a(href="/login") log in
             |  or 
             a(href="/signup") sign up
